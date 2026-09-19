@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Libre+Franklin:wght@700;800&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <header class="hero">
@@ -17,8 +18,8 @@
       <a class="brand" href="#top">Y + GT</a>
       <div class="nav-links">
         <a href="#routes">Routes</a>
-        <a href="#plan">Daily plan</a>
-        <a href="#weather">Weather</a>
+        <a href="#alternatives">Plan B</a>
+        <a href="#checklist">Checklist</a>
       </div>
     </nav>
 
@@ -31,7 +32,11 @@
         <div><strong>3 routes</strong><span>Google Maps ready</span></div>
         <div><strong>1:35 PM</strong><span>BZN departure</span></div>
       </div>
-      <a class="button button-light" href="#routes">Open the drive plan</a>
+      <div class="hero-actions">
+        <a class="button button-light" href="#routes">Open the drive plan</a>
+        <button class="button button-ghost" id="sharePage" type="button">Share this page</button>
+        <a class="button button-ghost" id="tripDocument" href="#" target="_blank" rel="noopener" hidden>Open trip document</a>
+      </div>
     </div>
   </header>
 
@@ -81,6 +86,60 @@
         </article>
       </div>
       <p class="fine-print">Drive times are Google Maps estimates checked Sept 19. They exclude sightseeing, parking, construction, and wildlife jams.</p>
+
+      <div class="route-explorer" aria-labelledby="route-explorer-title">
+        <div class="explorer-heading">
+          <div>
+            <p class="kicker">Along the way</p>
+            <h3 id="route-explorer-title">What to notice on each route</h3>
+          </div>
+          <p>Use these as optional layers, not a fourth itinerary. The marked priority stops are worth protecting. Everything else is a bonus when parking and timing cooperate.</p>
+        </div>
+
+        <div class="tab-list" role="tablist" aria-label="Route sights">
+          <button class="tab-button is-active" type="button" role="tab" aria-selected="true" aria-controls="sights-21" id="sights-tab-21" data-tab-group="sights" data-tab-target="sights-21">Sept 21</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="sights-22" id="sights-tab-22" data-tab-group="sights" data-tab-target="sights-22">Sept 22</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="sights-23" id="sights-tab-23" data-tab-group="sights" data-tab-target="sights-23">Sept 23</button>
+        </div>
+
+        <div class="tab-panel" id="sights-21" role="tabpanel" aria-labelledby="sights-tab-21" data-tab-panel="sights">
+          <div class="sight-grid">
+            <article class="sight-card priority"><span>Priority · dawn</span><h4>Lamar Valley</h4><p>Scan open grasslands for bison, elk, pronghorn, wolves, and bears. Look for groups with spotting scopes, then use the next legal pullout.</p><small>Allow 90 to 120 min</small></article>
+            <article class="sight-card"><span>Quick overlook</span><h4>Tower Fall</h4><p>A short walk from the general-store area reveals the 132-foot fall framed by volcanic pinnacles. Add it only if parking is easy.</p><small>Allow 15 to 20 min</small></article>
+            <article class="sight-card"><span>Small detour</span><h4>Calcite Springs</h4><p>See the Yellowstone River, steaming springs, and the downstream edge of the canyon from the overlook.</p><small>Allow 15 min</small></article>
+            <article class="sight-card priority"><span>Priority · canyon</span><h4>Artist Point</h4><p>The classic view faces the 308-foot Lower Falls and the colored canyon walls. This is the one canyon viewpoint to protect.</p><small>Allow 35 to 45 min</small></article>
+            <article class="sight-card"><span>Optional second angle</span><h4>Lookout Point</h4><p>A North Rim view of Lower Falls. Add it only if the group wants another canyon perspective and parking is moving.</p><small>Allow 25 to 35 min</small></article>
+            <article class="sight-card priority"><span>Priority · afternoon</span><h4>Hayden Valley</h4><p>Use the large pullouts for bison, elk, coyotes, and possible wolf or bear sightings. Mud Volcano sits just south of the valley if energy remains.</p><small>Allow 45 to 75 min</small></article>
+          </div>
+          <a class="text-link" href="https://www.nps.gov/yell/planyourvisit/towerrplan.htm" target="_blank" rel="noopener">Official Lamar and Tower guide ↗</a>
+        </div>
+
+        <div class="tab-panel" id="sights-22" role="tabpanel" aria-labelledby="sights-tab-22" data-tab-panel="sights" hidden>
+          <div class="sight-grid">
+            <article class="sight-card"><span>Lakeside thermal basin</span><h4>West Thumb details</h4><p>Watch for Abyss Pool, Black Pool, Fishing Cone, and hydrothermal features extending into Yellowstone Lake.</p><small>Allow 40 to 50 min</small></article>
+            <article class="sight-card"><span>Roadside bonus</span><h4>Lewis Falls</h4><p>A 29-foot cascade beside the South Entrance road. Stop only when a safe parking space is open.</p><small>Allow 10 min</small></article>
+            <article class="sight-card priority"><span>Priority · mountain view</span><h4>Jackson Lake Dam</h4><p>Walk a short section near the dam for an open-water view toward Mount Moran and the northern Teton Range.</p><small>Allow 20 to 30 min</small></article>
+            <article class="sight-card priority"><span>Priority · wildlife</span><h4>Oxbow Bend</h4><p>Slow water and willow habitat attract moose, river otters, beavers, pelicans, ospreys, and bald eagles.</p><small>Allow 30 to 45 min</small></article>
+            <article class="sight-card"><span>Scenic drive</span><h4>North Jenny Lake Road</h4><p>The short one-way drive adds a Jenny Lake overlook and access to String Lake when traffic is light.</p><small>Add 20 to 35 min</small></article>
+            <article class="sight-card priority"><span>Priority · family walk</span><h4>Jenny Lake Discovery Trail</h4><p>An easy paved 0.35-mile path reaches the lakeshore and mountain views without committing to a longer hike.</p><small>Allow 45 to 75 min</small></article>
+            <article class="sight-card"><span>Easy final stop</span><h4>Chapel of the Transfiguration</h4><p>Near Moose, the small historic chapel frames the Teton peaks through its altar window. It stays close to the main route.</p><small>Allow 15 to 20 min</small></article>
+          </div>
+          <a class="text-link" href="https://www.nps.gov/grte/planyourvisit/drives.htm" target="_blank" rel="noopener">Official Grand Teton scenic-drive guide ↗</a>
+        </div>
+
+        <div class="tab-panel" id="sights-23" role="tabpanel" aria-labelledby="sights-tab-23" data-tab-panel="sights" hidden>
+          <div class="sight-grid">
+            <article class="sight-card priority"><span>Priority · early light</span><h4>Upper Mesa Falls</h4><p>Boardwalk overlooks face a broad volcanic-cliff waterfall on the Henrys Fork. Early arrival keeps the stop calm and efficient.</p><small>Allow 35 to 40 min</small></article>
+            <article class="sight-card"><span>Quick pullout</span><h4>Gibbon Falls</h4><p>An 84-foot waterfall drops over the Yellowstone Caldera rim. The long viewing walkway makes it easy when parking is available.</p><small>Allow 15 to 20 min</small></article>
+            <article class="sight-card priority"><span>Priority · geothermal</span><h4>Norris Porcelain Basin</h4><p>The 0.75-mile route shows the park’s hottest and most dynamic thermal basin. Choose it over the longer Back Basin today.</p><small>Allow 45 to 55 min</small></article>
+            <article class="sight-card"><span>Roadside bonus</span><h4>Roaring Mountain</h4><p>A quick northbound pullout with a hillside of fumaroles. Stop only if the schedule and parking are both comfortable.</p><small>Allow 5 to 10 min</small></article>
+            <article class="sight-card priority"><span>Priority · terraces</span><h4>Mammoth Lower Terraces</h4><p>Walk the lower boardwalks for constantly changing travertine formations. Add the Upper Terrace Drive only if it is open and time allows.</p><small>Allow 50 to 70 min</small></article>
+            <article class="sight-card"><span>History bonus</span><h4>Fort Yellowstone</h4><p>Red-roofed Army buildings surround the parade ground. The Albright Visitor Center adds exhibits, restrooms, and current ranger advice.</p><small>Allow 15 to 25 min</small></article>
+            <article class="sight-card"><span>Photo stop</span><h4>Roosevelt Arch</h4><p>Pull over after the North Entrance for the classic stone-arch photograph before continuing toward the commercial hot springs.</p><small>Allow 10 to 15 min</small></article>
+          </div>
+          <a class="text-link" href="https://www.nps.gov/yell/planyourvisit/norrisplan.htm" target="_blank" rel="noopener">Official Norris area guide ↗</a>
+        </div>
+      </div>
     </section>
 
     <section class="section section-tint" id="plan">
@@ -157,6 +216,71 @@
       </div>
     </section>
 
+    <section class="section wrap" id="alternatives">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">When the day changes</p>
+          <h2>Choose a backup plan</h2>
+        </div>
+        <p>Select the situation that best matches the morning. These swaps protect the overnight destination and the most important sights.</p>
+      </div>
+
+      <div class="decision-shell">
+        <div class="decision-buttons" role="tablist" aria-label="Alternative trip plans">
+          <button class="decision-button is-active" type="button" role="tab" aria-selected="true" aria-controls="backup-late" id="backup-tab-late" data-tab-group="backup" data-tab-target="backup-late"><span>01</span>Running late</button>
+          <button class="decision-button" type="button" role="tab" aria-selected="false" aria-controls="backup-weather" id="backup-tab-weather" data-tab-group="backup" data-tab-target="backup-weather"><span>02</span>Rain or low clouds</button>
+          <button class="decision-button" type="button" role="tab" aria-selected="false" aria-controls="backup-road" id="backup-tab-road" data-tab-group="backup" data-tab-target="backup-road"><span>03</span>Road disruption</button>
+          <button class="decision-button" type="button" role="tab" aria-selected="false" aria-controls="backup-energy" id="backup-tab-energy" data-tab-group="backup" data-tab-target="backup-energy"><span>04</span>Low-energy group</button>
+        </div>
+
+        <div class="decision-content">
+          <article class="decision-panel" id="backup-late" role="tabpanel" aria-labelledby="backup-tab-late" data-tab-panel="backup">
+            <p class="plan-tag">Protect the anchors</p>
+            <h3>Cut stops in a fixed order</h3>
+            <ol>
+              <li><strong>Sept 21:</strong> Skip Tower Fall and Lookout Point first. If departure slips past 6:30 AM, drop Lamar and start with Artist Point, then Hayden Valley.</li>
+              <li><strong>Sept 22:</strong> Skip Lewis Falls and North Jenny Lake Road. Keep West Thumb, Oxbow Bend, Jenny Lake, and the Tetonia arrival.</li>
+              <li><strong>Sept 23:</strong> Skip Gibbon Falls first, then shorten Norris to Porcelain Basin. Keep Mammoth, the North Entrance, and the overnight transfer.</li>
+            </ol>
+          </article>
+
+          <article class="decision-panel" id="backup-weather" role="tabpanel" aria-labelledby="backup-tab-weather" data-tab-panel="backup" hidden>
+            <p class="plan-tag">Use clouds strategically</p>
+            <h3>Save mountain views for the clearest window</h3>
+            <ol>
+              <li><strong>Foggy Sept 20:</strong> Keep Fountain Paint Pot first and move Grand Prismatic later. Low steam and fog can hide the spring’s color.</li>
+              <li><strong>Cloudy Sept 22:</strong> Continue through West Thumb and the park. Pause at Jackson Lake Dam or Oxbow only when the peaks appear, then protect the easy Jenny Lake walk.</li>
+              <li><strong>Wet Sept 23:</strong> Use rain shells at Norris and Mammoth. Skip exposed bonus viewpoints, but keep the commercial soak if roads remain safe.</li>
+            </ol>
+          </article>
+
+          <article class="decision-panel" id="backup-road" role="tabpanel" aria-labelledby="backup-tab-road" data-tab-panel="backup" hidden>
+            <p class="plan-tag">Never force a closed route</p>
+            <h3>Use the outside-park escape routes</h3>
+            <ol>
+              <li><strong>Dunraven closure on Sept 21:</strong> Drop Lamar. Reach Canyon and Hayden through Norris, then return the same way.</li>
+              <li><strong>South Entrance closure on Sept 22:</strong> Leave Yellowstone through West Yellowstone and use Island Park and Ashton to reach Tetonia. Skip the Tetons instead of gambling with daylight.</li>
+              <li><strong>Norris-to-Mammoth closure on Sept 23:</strong> From West Yellowstone, use US 191 north toward Bozeman, I-90 east to Livingston, then US 89 south to Pray. Drop the soak.</li>
+            </ol>
+            <div class="backup-links">
+              <a class="button" href="https://www.google.com/maps/dir/?api=1&amp;origin=West+Yellowstone%2C+MT&amp;destination=Tetonia%2C+ID&amp;travelmode=driving&amp;waypoints=Island+Park%2C+ID%7CAshton%2C+ID" target="_blank" rel="noopener">Sept 22 outside-park route ↗</a>
+              <a class="button" href="https://www.google.com/maps/dir/?api=1&amp;origin=Tetonia%2C+ID&amp;destination=Pray%2C+MT&amp;travelmode=driving&amp;waypoints=Upper+Mesa+Falls%2C+ID%7CWest+Yellowstone%2C+MT%7CBozeman%2C+MT" target="_blank" rel="noopener">Sept 23 outside-park route ↗</a>
+            </div>
+          </article>
+
+          <article class="decision-panel" id="backup-energy" role="tabpanel" aria-labelledby="backup-tab-energy" data-tab-panel="backup" hidden>
+            <p class="plan-tag">Short walks, strong views</p>
+            <h3>Use the family-light version</h3>
+            <ol>
+              <li><strong>Sept 21:</strong> Start later and do Artist Point plus Hayden Valley only. Use Canyon Village for food, restrooms, and a reset.</li>
+              <li><strong>Sept 22:</strong> Keep Jackson Lake Dam, Oxbow Bend, and the paved Jenny Lake Discovery Trail. Skip every optional detour.</li>
+              <li><strong>Sept 23:</strong> Keep Upper Mesa Falls, Mammoth Lower Terraces, and the soak. Treat Norris as optional.</li>
+            </ol>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section wrap" id="weather">
       <div class="section-heading">
         <div>
@@ -179,6 +303,89 @@
         <a href="https://forecast.weather.gov/MapClick.php?lat=44.7348&amp;lon=-110.4904" target="_blank" rel="noopener">Yellowstone Canyon forecast ↗</a>
         <a href="https://forecast.weather.gov/MapClick.php?lat=43.8266&amp;lon=-111.1602" target="_blank" rel="noopener">Tetonia forecast ↗</a>
         <a href="https://forecast.weather.gov/MapClick.php?lat=45.3840&amp;lon=-110.6800" target="_blank" rel="noopener">Pray forecast ↗</a>
+      </div>
+    </section>
+
+    <section class="section checklist-section" id="checklist">
+      <div class="wrap">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">Saved on this device</p>
+            <h2>Trip checklist</h2>
+          </div>
+          <div class="progress-block">
+            <div class="progress-copy"><strong id="checklistProgress">0 of 15 complete</strong><button id="resetChecklist" type="button">Reset</button></div>
+            <div class="progress-track" aria-hidden="true"><span id="progressBar"></span></div>
+          </div>
+        </div>
+
+        <div class="checklist-grid">
+          <fieldset class="checklist-card">
+            <legend>Before the trip</legend>
+            <label><input type="checkbox" data-check-id="lodging"><span>Confirm Sept 22 Tetonia and Sept 23 Pray lodging</span></label>
+            <label><input type="checkbox" data-check-id="maps"><span>Download all three Google Maps routes offline</span></label>
+            <label><input type="checkbox" data-check-id="pass"><span>Save the park pass or purchase confirmation</span></label>
+            <label><input type="checkbox" data-check-id="soak"><span>Recheck Yellowstone Hot Springs hours</span></label>
+            <label><input type="checkbox" data-check-id="spray"><span>Rent or buy bear spray after landing, never pack it for the flight</span></label>
+          </fieldset>
+
+          <fieldset class="checklist-card">
+            <legend>Every morning</legend>
+            <label><input type="checkbox" data-check-id="roads"><span>Open the official Yellowstone and Grand Teton road pages</span></label>
+            <label><input type="checkbox" data-check-id="forecast"><span>Check NWS forecast and flight status</span></label>
+            <label><input type="checkbox" data-check-id="fuel"><span>Keep the fuel tank above half</span></label>
+            <label><input type="checkbox" data-check-id="food"><span>Pack breakfast, lunch, snacks, and water</span></label>
+            <label><input type="checkbox" data-check-id="layers"><span>Bring warm layers, rain shells, hats, and dry shoes</span></label>
+          </fieldset>
+
+          <fieldset class="checklist-card">
+            <legend>Day-specific</legend>
+            <label><input type="checkbox" data-check-id="wildlife"><span>Binoculars and charged camera for Sept 21</span></label>
+            <label><input type="checkbox" data-check-id="teton"><span>Picnic and full fuel tank before Sept 22</span></label>
+            <label><input type="checkbox" data-check-id="swim"><span>Swimsuits, towels, and a dry bag for Sept 23</span></label>
+            <label><input type="checkbox" data-check-id="child"><span>Child seat, comfort item, and spare warm clothing</span></label>
+            <label><input type="checkbox" data-check-id="airport"><span>Set a 9:00 AM hard departure alarm for Sept 24</span></label>
+          </fieldset>
+
+          <fieldset class="checklist-card drone-checklist">
+            <legend>Drone, if bringing one</legend>
+            <label><input type="checkbox" data-check-id="drone-trust"><span>Carry TRUST proof, registration, and Remote ID details if required</span></label>
+            <label><input type="checkbox" data-check-id="drone-airspace"><span>Check the exact launch pin in an FAA-approved B4UFLY service immediately before flight</span></label>
+            <label><input type="checkbox" data-check-id="drone-land"><span>Confirm the takeoff point is legal public land outside park and Wilderness boundaries</span></label>
+          </fieldset>
+        </div>
+        <p class="fine-print">Checklist status stays in this browser only. Each traveler can maintain their own copy.</p>
+      </div>
+    </section>
+
+    <section class="drone-section" id="drone">
+      <div class="wrap drone-grid">
+        <div>
+          <p class="kicker">Optional aerial stop</p>
+          <h2>Fly outside the national parks</h2>
+          <p class="drone-lead">Best candidate: non-Wilderness Caribou-Targhee National Forest land in the Big Hole Mountains west of Tetonia, with the Packsaddle Lake access area as a starting point for your same-day check.</p>
+          <p>This can fit after checking into Tetonia on Sept 22 if daylight, wind, road conditions, and the family’s energy are all good. Treat it as a candidate, not a pre-cleared launch site. The exact takeoff pin must be verified in the Forest Service map and an FAA-approved B4UFLY service immediately before flight.</p>
+          <div class="drone-actions">
+            <a class="button button-light" href="https://www.google.com/maps/search/?api=1&amp;query=Packsaddle+Lake%2C+Idaho" target="_blank" rel="noopener">View candidate area ↗</a>
+            <a class="button button-ghost" href="https://www.faa.gov/uas/getting_started/b4ufly" target="_blank" rel="noopener">Check B4UFLY options ↗</a>
+          </div>
+        </div>
+        <aside class="drone-rules">
+          <h3>Non-negotiable rules</h3>
+          <ul>
+            <li>No launch, landing, or operation inside Yellowstone or Grand Teton National Park.</li>
+            <li>Do not launch from designated Wilderness, a developed recreation site, private land without permission, or an area covered by a temporary flight restriction.</li>
+            <li>Complete TRUST and carry proof. Register drones weighing 250 g or more and meet Remote ID requirements when applicable.</li>
+            <li>Stay at or below 400 feet in uncontrolled airspace, keep visual line of sight, yield to aircraft, and avoid people and wildlife.</li>
+            <li>Wind in Teton Valley can change quickly. Skip the flight if gusts or visibility are marginal.</li>
+          </ul>
+          <div class="drone-source-links">
+            <a href="https://www.nps.gov/yell/planyourvisit/filmpermit.htm" target="_blank" rel="noopener">Yellowstone rule ↗</a>
+            <a href="https://www.nps.gov/grte/planyourvisit/filming.htm" target="_blank" rel="noopener">Grand Teton rule ↗</a>
+            <a href="https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/fseprd493612.pdf" target="_blank" rel="noopener">Forest Service guidance ↗</a>
+            <a href="https://www.faa.gov/uas/recreational_flyers" target="_blank" rel="noopener">FAA recreational rules ↗</a>
+          </div>
+        </aside>
       </div>
     </section>
 
@@ -225,6 +432,10 @@
         <a href="https://www.nps.gov/yell/planyourvisit/conditions.htm" target="_blank" rel="noopener">Yellowstone conditions ↗</a>
         <a href="https://www.nps.gov/grte/planyourvisit/conditions.htm" target="_blank" rel="noopener">Grand Teton conditions ↗</a>
         <a href="https://bozemanairport.com/contact-us" target="_blank" rel="noopener">BZN arrival guidance ↗</a>
+      </div>
+      <div class="document-callout" id="documentCallout" hidden>
+        <div><p class="kicker">Full shareable plan</p><h3>Open the trip document</h3><p>Use the detailed document for timed schedules, lodging notes, and the complete source list.</p></div>
+        <a class="button" id="documentCalloutLink" href="#" target="_blank" rel="noopener">Open Google Drive document ↗</a>
       </div>
     </section>
   </main>
