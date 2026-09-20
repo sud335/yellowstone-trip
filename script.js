@@ -60,7 +60,9 @@ checklist.forEach((item) => {
 });
 renderProgress();
 
-document.querySelector("#resetChecklist")?.addEventListener("click", () => {
+document.querySelector("#resetChecklist")?.addEventListener("click", (event) => {
+  event.preventDefault();
+  event.stopPropagation();
   localStorage.removeItem(storageKey);
   checklist.forEach((item) => { item.checked = false; });
   renderProgress();
