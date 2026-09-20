@@ -380,6 +380,37 @@ h1 span { color: #b9cbbd; }
 .document-callout h3 { margin: 0 0 8px; font-size: 1.5rem; }
 .document-callout p { margin: 0; color: var(--muted); }
 
+.food-section { background: #fffaf0; }
+.food-note { margin-bottom: 28px; padding: 18px 22px; border-left: 4px solid var(--gold); border-radius: 0 14px 14px 0; background: #f3e5c8; color: var(--muted); }
+.food-note strong { color: var(--ink); }
+.food-tabs { margin-top: 0; overflow-x: auto; padding-bottom: 5px; }
+.food-tabs .tab-button { flex: 0 0 auto; }
+.food-panel { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+.meal-card {
+  min-height: 340px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.meal-card.dinner-card { border-top: 5px solid var(--rust); }
+.meal-card.lunch-card { border-top: 5px solid var(--sage); }
+.meal-card.backup-card { background: #f5f1e8; }
+.meal-top { display: flex; justify-content: space-between; gap: 18px; align-items: center; }
+.meal-type { color: var(--rust); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.11em; text-transform: uppercase; }
+.price-tag { padding: 5px 9px; border-radius: 999px; background: rgba(22, 56, 46, 0.08); color: var(--forest); font-size: 0.72rem; font-weight: 800; }
+.meal-card h3 { margin: 17px 0 8px; font-size: 1.6rem; letter-spacing: -0.04em; }
+.meal-card p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+.meal-card .meal-meta { margin-bottom: 17px; color: var(--forest); font-size: 0.77rem; font-weight: 700; }
+.meal-tip { margin-top: 20px; padding: 13px 15px; border-radius: 12px; background: #f1eadb; color: var(--muted); font-size: 0.82rem; }
+.meal-tip strong { color: var(--ink); }
+.meal-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: auto; padding-top: 24px; }
+.meal-links a { color: var(--forest); font-size: 0.8rem; font-weight: 800; }
+
 .drone-section { padding: 100px 0; color: white; background: #1c2b38; }
 .drone-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 72px; align-items: center; }
 .drone-section .kicker { color: #91c7df; }
@@ -428,14 +459,15 @@ footer { padding: 42px 0; background: var(--forest-dark); color: white; }
   .drone-checklist { grid-column: auto; display: block; }
   .drone-checklist label + label { border-top: 1px solid var(--line); }
   .drone-grid { grid-template-columns: 1fr; gap: 48px; }
+  .food-panel { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 680px) {
   .wrap { width: min(100% - 28px, 1120px); }
   .hero { min-height: 680px; }
   .nav { height: 76px; }
-  .nav-links { gap: 14px; }
-  .nav-links a { font-size: 0.78rem; }
+  .nav-links { gap: 11px; }
+  .nav-links a { font-size: 0.72rem; }
   .brand { width: 46px; height: 46px; }
   .hero-content { padding: 90px 0; }
   h1 { font-size: clamp(3.35rem, 18vw, 5rem); }
@@ -460,6 +492,7 @@ footer { padding: 42px 0; background: var(--forest-dark); color: white; }
   .decision-content { padding: 28px 22px; min-height: 520px; }
   .checklist-grid { grid-template-columns: 1fr; }
   .document-callout { align-items: flex-start; flex-direction: column; }
+  .meal-card { min-height: 0; padding: 24px 20px; }
   .drone-section { padding: 72px 0; }
   .footer-grid { grid-template-columns: 1fr; }
 }
